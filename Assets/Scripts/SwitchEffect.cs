@@ -26,8 +26,8 @@ public class SwitchEffect : MonoBehaviour
             {
                 gameObject.GetComponent<TrailRenderer>().startColor = Color.blue;
             }
-            positionChange(activePlayer.transform.position);
-            if (transform.position == activePlayer.transform.position)
+            positionChange(activePlayer.transform.GetChild(0).position);
+            if (transform.position == activePlayer.transform.GetChild(0).position)
             {
                 moveEffect = false;
                 foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
