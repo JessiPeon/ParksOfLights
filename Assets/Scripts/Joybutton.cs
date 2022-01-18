@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Joybutton : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private GameController gameController;
     void Start()
     {
-        
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -18,9 +18,6 @@ public class Joybutton : MonoBehaviour
 
     public void SwitchPlayer()
     {
-        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            player.GetComponent<Player>().activePlayer = !player.GetComponent<Player>().activePlayer;
-        }
+        gameController.switchPlayer();
     }
 }

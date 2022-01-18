@@ -17,10 +17,16 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !playOnPhone)
         {
-            foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
-            {
-                player.GetComponent<Player>().activePlayer = !player.GetComponent<Player>().activePlayer;
-            }
+            switchPlayer();
+        }
+    }
+
+    public void switchPlayer()
+    {
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            player.GetComponent<Player>().activePlayer = !player.GetComponent<Player>().activePlayer;
+            GameObject.Find("StellaPoint").GetComponent<SwitchEffect>().moveEffect = true;
         }
     }
 }
