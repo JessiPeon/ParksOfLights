@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public bool playOnPhone;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +15,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !playOnPhone)
         {
             foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
             {

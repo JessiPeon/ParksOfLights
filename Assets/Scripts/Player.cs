@@ -6,18 +6,26 @@ public class Player : MonoBehaviour
 {
 
     private Rigidbody2D rb;
-    public float speed;
+    public float speedOnDesktop;
+    public float speedOnPhone;
+    private float speed;
     public bool illuminated = true;
     public bool activePlayer = true;
     public int lives = 5;
     public float timeToRevive = 1f;
     public float timeToCheckDeath = 0.1f;
     public GameObject lastLightVisited;
+    private GameController gameController;
+    public Joystick joystick;
+    private float movDirX;
+    private float movDirY;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        joystick = FindObjectOfType<Joystick>();
     }
 
     // Update is called once per frame
@@ -26,8 +34,17 @@ public class Player : MonoBehaviour
 
         if (illuminated && activePlayer)
         {
-            float movDirX = Input.GetAxis("Horizontal");
-            float movDirY = Input.GetAxis("Vertical");
+            if (gameController.playOnPhone)
+            {
+                movDirX = joystick.Horizontal;
+                movDirY = joystick.Vertical;
+                speed = speedOnPhone;
+            } else
+            {
+                movDirX = Input.GetAxis("Horizontal");
+                movDirY = Input.GetAxis("Vertical");
+                speed = speedOnDesktop;
+            }
             rb.velocity = new Vector2(movDirX * speed, movDirY * speed);
         }
         else

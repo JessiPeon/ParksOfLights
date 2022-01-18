@@ -25,7 +25,26 @@ public class Switch : MonoBehaviour
             for (int i = 0; i < gameObject.transform.childCount ; i++)
             {
                 transform.GetChild(i).GetComponent<Light2D>().enabled = !transform.GetChild(i).GetComponent<Light2D>().enabled;
-                transform.GetChild(i).GetComponent<CircleCollider2D>().enabled = !transform.GetChild(i).GetComponent<CircleCollider2D>().enabled;
+                transform.GetChild(i).GetComponent<PolygonCollider2D>().enabled = !transform.GetChild(i).GetComponent<PolygonCollider2D>().enabled;
+            }
+        }
+    }
+/*
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        IEnumerator coroutine = TurnOffPlatform(collision);
+        StartCoroutine(coroutine);
+    }
+*/
+    IEnumerator TurnOffPlatform(Collider2D collision)
+    {
+        yield return new WaitForSeconds(2f);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                transform.GetChild(i).GetComponent<Light2D>().enabled = !transform.GetChild(i).GetComponent<Light2D>().enabled;
+                transform.GetChild(i).GetComponent<PolygonCollider2D>().enabled = !transform.GetChild(i).GetComponent<PolygonCollider2D>().enabled;
             }
         }
     }
