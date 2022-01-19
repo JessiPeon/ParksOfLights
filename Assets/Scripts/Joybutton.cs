@@ -5,6 +5,7 @@ using UnityEngine;
 public class Joybutton : MonoBehaviour
 {
     private GameController gameController;
+
     void Start()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();

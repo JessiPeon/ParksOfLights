@@ -17,8 +17,9 @@ public class SwitchEffect : MonoBehaviour
                 if (player.GetComponent<Player>().activePlayer)
                 {
                     activePlayer = player;
-                }
+                } 
             }
+            
             if (activePlayer.name == "Jinjin")
             {
                 gameObject.GetComponent<TrailRenderer>().startColor = Color.green;

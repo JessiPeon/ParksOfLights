@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Light : MonoBehaviour
 {
@@ -41,4 +42,10 @@ public class Light : MonoBehaviour
         }
     }
 
+    public void TurnOnOff()
+    {
+        gameObject.GetComponent<Light2D>().enabled = !gameObject.GetComponent<Light2D>().enabled;
+        gameObject.GetComponent<PolygonCollider2D>().enabled = !gameObject.GetComponent<PolygonCollider2D>().enabled;
+        gameObject.GetComponent<SpriteRenderer>().enabled = !gameObject.GetComponent<SpriteRenderer>().enabled;
+    }
 }

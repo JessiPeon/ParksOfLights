@@ -5,10 +5,18 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public bool playOnPhone;
+    public int buttonTimes = 0;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        if (!playOnPhone)
+        {
+            foreach (GameObject control in GameObject.FindGameObjectsWithTag("Joystick"))
+            {
+                control.SetActive(false);
+            }
+        }
         
     }
 
@@ -23,10 +31,18 @@ public class GameController : MonoBehaviour
 
     public void switchPlayer()
     {
+        GameObject stella = GameObject.Find("StellaPoint");
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
             player.GetComponent<Player>().activePlayer = !player.GetComponent<Player>().activePlayer;
-            GameObject.Find("StellaPoint").GetComponent<SwitchEffect>().moveEffect = true;
+            if (!player.GetComponent<Player>().activePlayer)
+            {
+                stella.GetComponent<TrailRenderer>().enabled = false;
+                stella.transform.position = player.transform.position;
+            }
+
         }
+        stella.GetComponent<TrailRenderer>().enabled = true;
+        stella.GetComponent<SwitchEffect>().moveEffect = true;
     }
 }
