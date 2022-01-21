@@ -7,9 +7,22 @@ public class GameController : MonoBehaviour
     public bool playOnPhone;
     public int buttonTimes = 0;
 
+    public static GameController instance;
+
     // Start is called before the first frame update
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
+
         if (!playOnPhone)
         {
             foreach (GameObject control in GameObject.FindGameObjectsWithTag("Joystick"))
