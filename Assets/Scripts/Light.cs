@@ -5,10 +5,11 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class Light : MonoBehaviour
 {
+    private GameController gameController;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -19,7 +20,7 @@ public class Light : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !gameController.winLevel)
         {
             collision.GetComponent<Player>().Die();
         }

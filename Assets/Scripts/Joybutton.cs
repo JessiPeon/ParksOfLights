@@ -19,6 +19,6 @@ public class Joybutton : MonoBehaviour
 
     public void SwitchPlayer()
     {
-        gameController.switchPlayer();
+        gameController.SwitchPlayer();
     }
 }

@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     private float movDirX;
     private float movDirY;
 
+    public Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,7 +32,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         if (illuminated && activePlayer)
         {
             if (gameController.playOnPhone)
@@ -38,11 +40,15 @@ public class Player : MonoBehaviour
                 movDirX = joystick.Horizontal;
                 movDirY = joystick.Vertical;
                 speed = speedOnPhone;
+                animator.SetFloat("Horizontal", joystick.Horizontal);
+                animator.SetFloat("Vertical", joystick.Vertical);
             } else
             {
                 movDirX = Input.GetAxis("Horizontal");
                 movDirY = Input.GetAxis("Vertical");
                 speed = speedOnDesktop;
+                animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+                animator.SetFloat("Vertical", Input.GetAxis("Vertical"));
             }
             rb.velocity = new Vector2(movDirX * speed, movDirY * speed);
         }
