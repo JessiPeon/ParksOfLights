@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 342869366}
   - component: {fileID: 342869365}
   - component: {fileID: 342869364}
+  - component: {fileID: 342869367}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -270,7 +271,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 342869365}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 342869367}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: NextLevel
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Controls
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &342869365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +322,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342869362}
   m_CullTransparentMesh: 1
+--- !u!114 &342869367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342869362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbefcd88a522fd4abdd9e51ab3f2a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &698755299
 GameObject:
   m_ObjectHideFlags: 0
