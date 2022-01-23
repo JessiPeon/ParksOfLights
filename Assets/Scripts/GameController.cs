@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GameController : MonoBehaviour
     public Animator gateJinjin;
     public Animator gateRocky;
     public bool winLevel;
+
+    public int arrivedAtEnd = 0;
 
     // Start is called before the first frame update
     void Awake()
@@ -31,8 +34,13 @@ public class GameController : MonoBehaviour
         {
             foreach (GameObject control in GameObject.FindGameObjectsWithTag("Joystick"))
             {
-                control.SetActive(false);
+                control.GetComponent<Image>().enabled =false;
             }
+        }
+
+        if (arrivedAtEnd == 2)
+        {
+            //cambia escena
         }
         
     }

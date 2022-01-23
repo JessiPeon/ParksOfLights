@@ -118,7 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2700612944422033454, guid: 68fabbb4b7dd3e046b3ca27ae36225e7, type: 3}
       propertyPath: m_InstanceId
-      value: -1266
+      value: -212924
       objectReference: {fileID: 0}
     - target: {fileID: -2700612944422033454, guid: 68fabbb4b7dd3e046b3ca27ae36225e7, type: 3}
       propertyPath: m_HasRenderer
@@ -226,7 +226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4791765209201747395, guid: 68fabbb4b7dd3e046b3ca27ae36225e7, type: 3}
       propertyPath: m_Name
-      value: Jinjin
+      value: Jinjin Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4791765209201747397, guid: 68fabbb4b7dd3e046b3ca27ae36225e7, type: 3}
       propertyPath: animator
@@ -262,7 +262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6325350110191252173, guid: 68fabbb4b7dd3e046b3ca27ae36225e7, type: 3}
       propertyPath: m_Size.y
-      value: 0.42345
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: 6325350110191252173, guid: 68fabbb4b7dd3e046b3ca27ae36225e7, type: 3}
       propertyPath: m_Enabled
@@ -274,7 +274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6325350110191252173, guid: 68fabbb4b7dd3e046b3ca27ae36225e7, type: 3}
       propertyPath: m_Offset.y
-      value: -0.07495177
+      value: -0.16
       objectReference: {fileID: 0}
     - target: {fileID: 6325350110191252173, guid: 68fabbb4b7dd3e046b3ca27ae36225e7, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
