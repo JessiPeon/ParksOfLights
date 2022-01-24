@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
         joystick = FindObjectOfType<Joystick>();
         statusGame = GameObject.Find("StatusGame").GetComponent<StatusGame>();
-        changeScene = GameObject.Find("GameController").GetComponent<ChangeScene>();
+        changeScene = GameObject.Find("StatusGame").GetComponent<ChangeScene>();
     }
 
     // Update is called once per frame

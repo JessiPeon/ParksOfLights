@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FinalZone : MonoBehaviour
+public class FinalZoneAnimation : MonoBehaviour
 {
-    private GameController gameController;
 
     private ChangeScene changeScene;
 
-    public string nextLevel;
+    public string nextScene;
     void Start()
     {
-        gameController = GameObject.Find("GameController").GetComponent<GameController>();
         changeScene = GameObject.Find("StatusGame").GetComponent<ChangeScene>();
     }
 
@@ -19,11 +17,8 @@ public class FinalZone : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            gameController.arrivedAtEnd++;
+            changeScene.NextScene(nextScene);
         }
-        if (gameController.arrivedAtEnd == 2)
-        {
-            changeScene.NextLevel(nextLevel);
-        }
+        
     }
 }
