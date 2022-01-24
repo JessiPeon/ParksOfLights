@@ -24,7 +24,7 @@ public class Switch : MonoBehaviour
         if (inZone)
         {
 
-            if (playerInZone.GetComponent<Player>().activePlayer && gameController.buttonTimes == 0 && (Input.GetKeyDown(KeyCode.X) || GameObject.Find("Fixed Joybutton Activation").GetComponent<TurnOnOffButton>().buttonPressed))
+            if (playerInZone.GetComponent<Player>().activePlayer && (Input.GetKeyDown(KeyCode.X) || (GameObject.Find("Fixed Joybutton Activation").GetComponent<TurnOnOffButton>().buttonPressed && gameController.buttonTimes == 0)))
             {
                 gameController.buttonTimes++;
                 on = !on;

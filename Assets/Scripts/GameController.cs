@@ -2,45 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public bool playOnPhone;
+    
     public int buttonTimes = 0;
 
-    public static GameController instance;
+    
     public Animator gateJinjin;
     public Animator gateRocky;
     public bool winLevel;
 
+    public int arrivedAtEnd = 0;
+    private StatusGame statusGame;
+
     // Start is called before the first frame update
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject);
-
-        if (!playOnPhone)
+        winLevel = false;
+        statusGame = GameObject.Find("StatusGame").GetComponent<StatusGame>();
+        if (!statusGame.playOnPhone)
         {
             foreach (GameObject control in GameObject.FindGameObjectsWithTag("Joystick"))
             {
-                control.SetActive(false);
+                control.GetComponent<Image>().enabled =false;
             }
         }
+        
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !playOnPhone)
+        if (Input.GetKeyDown(KeyCode.Space) && !statusGame.playOnPhone)
         {
             SwitchPlayer();
         }
@@ -58,6 +54,7 @@ public class GameController : MonoBehaviour
             DisableSwitches();
             OpenGate();
         }
+
     }
 
     public void SwitchPlayer()

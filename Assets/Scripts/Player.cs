@@ -21,12 +21,16 @@ public class Player : MonoBehaviour
     private float movDirY;
 
     public Animator animator;
+    private StatusGame statusGame;
+    private ChangeScene changeScene;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
         joystick = FindObjectOfType<Joystick>();
+        statusGame = GameObject.Find("StatusGame").GetComponent<StatusGame>();
+        changeScene = GameObject.Find("StatusGame").GetComponent<ChangeScene>();
     }
 
     // Update is called once per frame
@@ -35,7 +39,7 @@ public class Player : MonoBehaviour
         
         if (illuminated && activePlayer)
         {
-            if (gameController.playOnPhone)
+            if (statusGame.playOnPhone)
             {
                 movDirX = joystick.Horizontal;
                 movDirY = joystick.Vertical;
@@ -89,5 +93,13 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(timeToRevive);
         transform.position = lastLightVisited.transform.GetChild(0).transform.position;
         //illuminated = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            changeScene.NextLevel("Final");
+        }
     }
 }
