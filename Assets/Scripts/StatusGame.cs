@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class StatusGame : MonoBehaviour
@@ -7,6 +8,7 @@ public class StatusGame : MonoBehaviour
 
     public static StatusGame instance;
     public bool playOnPhone;
+    public int lives = 5;
 
     void Awake()
     {
@@ -20,7 +22,6 @@ public class StatusGame : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
-
     }
     void Start()
     {
@@ -30,6 +31,11 @@ public class StatusGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameObject.Find("Lives"))
+        {
+            TextMeshProUGUI t = GameObject.Find("Lives").GetComponent<TextMeshProUGUI>();
+            t.text = lives.ToString();
+        }
+            
     }
 }
