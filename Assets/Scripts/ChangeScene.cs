@@ -19,6 +19,24 @@ public class ChangeScene : MonoBehaviour
 
     public void NextScene(string name)
     {
-        SceneManager.LoadScene(name);
+        if (name == "Controls")
+        {
+            StartCoroutine("LoadSceneInTime");
+        } else
+        {
+            if (name == "SecondScene")
+            {
+                FindObjectOfType<AudioController>().Play("Night");
+            }
+            SceneManager.LoadScene(name);
+        }
+        
+    }
+
+    IEnumerator LoadSceneInTime()
+    {
+        FindObjectOfType<AudioController>().Play("Start");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Controls");
     }
 }

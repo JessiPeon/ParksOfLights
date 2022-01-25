@@ -28,6 +28,7 @@ public class Switch : MonoBehaviour
             {
                 gameController.buttonTimes++;
                 on = !on;
+                FindObjectOfType<AudioController>().Play("Switch");
                 for (int i = 0; i < gameObject.transform.childCount; i++)
                 {
                     transform.GetChild(i).GetComponent<Light>().TurnOnOff();

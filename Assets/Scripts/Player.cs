@@ -11,8 +11,7 @@ public class Player : MonoBehaviour
     private float speed;
     public bool illuminated = true;
     public bool activePlayer = true;
-    public int lives = 5;
-    public float timeToRevive = 1f;
+    public float timeToRevive = 0.01f;
     public float timeToCheckDeath = 0.1f;
     public GameObject lastLightVisited;
     private GameController gameController;
@@ -22,7 +21,7 @@ public class Player : MonoBehaviour
 
     public Animator animator;
     private StatusGame statusGame;
-    private ChangeScene changeScene;
+    
 
     void Start()
     {
@@ -30,7 +29,7 @@ public class Player : MonoBehaviour
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
         joystick = FindObjectOfType<Joystick>();
         statusGame = GameObject.Find("StatusGame").GetComponent<StatusGame>();
-        changeScene = GameObject.Find("StatusGame").GetComponent<ChangeScene>();
+        
     }
 
     // Update is called once per frame
@@ -75,7 +74,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(timeToCheckDeath);
         if (!illuminated)
         {
-            if (lives > 0)
+            if (statusGame.lives > 0)
             {
                 //StopAllCoroutines();
                 StartCoroutine("RestOneLife");
@@ -89,7 +88,8 @@ public class Player : MonoBehaviour
 
     IEnumerator RestOneLife()
     {
-        lives--;
+        statusGame.lives--;
+        FindObjectOfType<AudioController>().Play("Life");
         yield return new WaitForSeconds(timeToRevive);
         transform.position = lastLightVisited.transform.GetChild(0).transform.position;
         //illuminated = true;
@@ -99,7 +99,8 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            changeScene.NextLevel("Final");
+            
         }
     }
+
 }
