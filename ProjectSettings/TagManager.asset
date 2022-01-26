@@ -8,6 +8,7 @@ TagManager:
   - Gate
   - FinalLight
   - Switch
+  - EndAnimation
   layers:
   - Default
   - TransparentFX

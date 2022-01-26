@@ -21,15 +21,18 @@ public class Player : MonoBehaviour
 
     public Animator animator;
     private StatusGame statusGame;
-    
+    private ChangeScene changeScene;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        if (GameObject.Find("GameController"))
+        {
+            gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        }
         joystick = FindObjectOfType<Joystick>();
         statusGame = GameObject.Find("StatusGame").GetComponent<StatusGame>();
-        
+        changeScene = GameObject.Find("StatusGame").GetComponent<ChangeScene>();
     }
 
     // Update is called once per frame
@@ -99,7 +102,11 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            
+            gameController.EnterFinal();
+        }
+        if (collision.gameObject.CompareTag("EndAnimation"))
+        {
+            changeScene.NextScene("SecondScene");
         }
     }
 

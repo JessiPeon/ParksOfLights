@@ -21,6 +21,6 @@ public class ControlsController : MonoBehaviour
         {
             statusGame.playOnPhone = true;
         }
-        changeScene.NextScene("SecondScene");
+        changeScene.NextScene("FirstScene");
     }
 }
