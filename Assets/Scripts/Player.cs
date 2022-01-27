@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
                 speed = speedOnPhone;
                 animator.SetFloat("Horizontal", joystick.Horizontal);
                 animator.SetFloat("Vertical", joystick.Vertical);
+                
             } else
             {
                 movDirX = Input.GetAxis("Horizontal");

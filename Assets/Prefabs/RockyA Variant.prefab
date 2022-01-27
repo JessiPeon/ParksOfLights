@@ -1,5 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1577906431996043972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756839099795075787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 380c095f5d5ea2744a19f17179a40b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedOnDesktop: 0
+  speedOnPhone: 0
+  illuminated: 1
+  activePlayer: 1
+  timeToRevive: 0.01
+  timeToCheckDeath: 0.1
+  lastLightVisited: {fileID: 0}
+  joystick: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1001 &7050463473647064132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 46291824787874974, guid: 1fad20a67a8017b43adb0b793651989b, type: 3}
       propertyPath: m_InstanceId
-      value: -1758
+      value: -107580
       objectReference: {fileID: 0}
     - target: {fileID: 1002368228241322369, guid: 1fad20a67a8017b43adb0b793651989b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -77,7 +98,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1756067332613006991, guid: 1fad20a67a8017b43adb0b793651989b, type: 3}
       propertyPath: m_Name
-      value: RockyA
+      value: RockyA Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1756067332613006985, guid: 1fad20a67a8017b43adb0b793651989b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1fad20a67a8017b43adb0b793651989b, type: 3}
+--- !u!1 &8756839099795075787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1756067332613006991, guid: 1fad20a67a8017b43adb0b793651989b, type: 3}
+  m_PrefabInstance: {fileID: 7050463473647064132}
+  m_PrefabAsset: {fileID: 0}

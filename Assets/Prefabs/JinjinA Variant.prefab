@@ -1,5 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &6227726579405028290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7121805516102834778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 380c095f5d5ea2744a19f17179a40b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedOnDesktop: 0
+  speedOnPhone: 0
+  illuminated: 1
+  activePlayer: 1
+  timeToRevive: 0.01
+  timeToCheckDeath: 0.1
+  lastLightVisited: {fileID: 0}
+  joystick: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1001 &3921324774242217478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 8867728728318342052, guid: 01ae4bbe4f0678b4c8b2fc812dd754d6, type: 3}
     - target: {fileID: 6106569354766152796, guid: 6418405b921218541870d8128833de17, type: 3}
       propertyPath: m_Name
-      value: JinjinA
+      value: JinjinA Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6106569354766152797, guid: 6418405b921218541870d8128833de17, type: 3}
       propertyPath: m_RootOrder
@@ -87,5 +108,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6106569354766152794, guid: 6418405b921218541870d8128833de17, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6418405b921218541870d8128833de17, type: 3}
+--- !u!1 &7121805516102834778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6106569354766152796, guid: 6418405b921218541870d8128833de17, type: 3}
+  m_PrefabInstance: {fileID: 3921324774242217478}
+  m_PrefabAsset: {fileID: 0}
