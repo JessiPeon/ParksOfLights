@@ -9,7 +9,11 @@ public class Light : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        if (GameObject.Find("GameController"))
+        {
+            gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        }
+        
     }
 
     // Update is called once per frame
