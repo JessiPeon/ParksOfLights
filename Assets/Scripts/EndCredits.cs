@@ -3,21 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class RestartButton : MonoBehaviour
+public class EndCredits : MonoBehaviour
 {
     private StatusGame statusGame;
-
-    
-    public void RestartGame()
+    void Start()
     {
         statusGame = GameObject.Find("StatusGame").GetComponent<StatusGame>();
         statusGame.lives = 5;
-        SceneManager.LoadScene("Intro");
+        SceneManager.LoadScene("FirstScene");
     }
 
-    public void Skip()
-    {
-        FindObjectOfType<AudioController>().Mute("Night");
-        SceneManager.LoadScene("Credits");
-    }
+
 }

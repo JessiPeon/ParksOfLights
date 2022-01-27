@@ -17,10 +17,12 @@ public class ControlsController : MonoBehaviour
         if (control == "Keyboard")
         {
             statusGame.playOnPhone = false;
+            changeScene.NextScene("TutorialPC");
         } else
         {
             statusGame.playOnPhone = true;
+            changeScene.NextScene("TutorialPhone");
         }
-        changeScene.NextScene("FirstScene");
+        
     }
 }

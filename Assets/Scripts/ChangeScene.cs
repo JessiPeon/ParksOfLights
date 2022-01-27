@@ -17,6 +17,13 @@ public class ChangeScene : MonoBehaviour
         SceneManager.LoadScene(name);
     }
 
+    public void GameOver()
+    {
+        FindObjectOfType<AudioController>().Mute("Night");
+        FindObjectOfType<AudioController>().Play("Breath");
+        SceneManager.LoadScene("GameOver");
+    }
+
     public void NextScene(string name)
     {
         if (name == "Controls")
